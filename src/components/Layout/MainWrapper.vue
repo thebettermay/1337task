@@ -4,23 +4,25 @@
           asdas
       </v-col>
       <v-col>
-          asda
       </v-col>
   </v-row>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
+import { mapGetters, mapActions } from 'vuex';
 import getUsers from '@/api/index';
 
 export default Vue.extend({
-  name: 'HelloWorld',
-  props: {
-    msg: String,
+  computed: {
+    ...mapGetters(['GET_USERS']),
+  },
+  methods: {
+    ...mapActions(['FETCH_USERS']),
   },
   async created() {
-    const res = await getUsers();
-    console.log(res);
+    await this.FETCH_USERS();
+    console.log(this.GET_USERS);
   },
 });
 </script>

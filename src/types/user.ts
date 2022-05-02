@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-interface */
 type UserEntity = {
     email: string,
     gitHub: string,
@@ -16,4 +17,6 @@ type UserEntity = {
     twitter: string | null,
 };
 
-export default UserEntity;
+interface UsersEntity extends Array<UserEntity>{users: []}
+
+export default UsersEntity;
