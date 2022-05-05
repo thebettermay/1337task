@@ -5,6 +5,9 @@
   $padding_buffer: 41px;
   $stepper_header: 72px;
   $dynamic_content_height: calc(100vh - #{$top_header_height} - #{$footer_height} - #{$table_pagination_height});
+
+  $no_margin: 0;
+  $no_padding: 0;
   
   :export {
     topHeaderHeight: $top_header_height;

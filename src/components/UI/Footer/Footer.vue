@@ -3,10 +3,10 @@
   padless
   dark
   class='secondary'>
-
+<v-spacer></v-spacer>
   <v-col class="text-center"
     cy-data="date"
-    cols="12">
+    cols="2">
     {{ getCurrentDate }} — Evgeniy Orekhov
   </v-col>
 </v-footer>

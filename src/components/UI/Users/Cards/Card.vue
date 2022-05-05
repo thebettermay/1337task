@@ -6,8 +6,10 @@
         <v-list two-line>
           <v-list-item>
             <v-list-item-content>
-              <v-list-item-title text-start><b>{{user.name}}</b></v-list-item-title>
-              <v-list-item-subtitle><b>Office:</b>{{user.office}}</v-list-item-subtitle>
+              <v-list-item-title class="align_left" text-start>
+                <b>{{user.name}}</b></v-list-item-title>
+              <v-list-item-subtitle class="align_left">
+                <b>Office:</b>{{user.office}}</v-list-item-subtitle>
               <v-container>
                 <networks-row></networks-row>
               </v-container>
@@ -36,8 +38,8 @@ export default Vue.extend({
   },
 });
 </script>
-<style lang="css">
-.v-avatar {
-  border-radius: 0;
+<style lang="scss">
+.align_left {
+  text-align: left;
 }
 </style>

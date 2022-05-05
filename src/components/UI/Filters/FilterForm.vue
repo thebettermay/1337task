@@ -1,6 +1,6 @@
 <template>
-<v-container fluid style="padding: 0">
-<v-row style="margin-top: 15px; padding: 10px" align="start">
+<v-container fluid class="mx-6">
+<v-row mx-6 align="start">
   <v-col style="margin: 0 width: 100px">
     <div class="heading">Filter by:</div>
   </v-col>
