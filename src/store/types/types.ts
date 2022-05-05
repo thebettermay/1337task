@@ -1,3 +1,3 @@
 export interface RootState {
-    helloMessage: string,
+    dummy: Record<string, unknown>
 }

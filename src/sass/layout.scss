@@ -1,0 +1,14 @@
+
+  @import '@/sass/_variables.scss';
+
+  #main-wrapper {
+    background: rgb(240, 240, 240);
+  }
+  
+  #content-wrapper {
+    padding: 0px !important;
+    margin-top: $top_header_height;
+    margin-bottom: $footer_height;
+    height: $dynamic_content_height;
+  }
+

@@ -1,0 +1,15 @@
+  // Константы разметки
+  $top_header_height: 66px;
+  $footer_height: 48px;
+  $table_pagination_height: 72px;
+  $padding_buffer: 41px;
+  $stepper_header: 72px;
+  $dynamic_content_height: calc(100vh - #{$top_header_height} - #{$footer_height} - #{$table_pagination_height});
+  
+  :export {
+    topHeaderHeight: $top_header_height;
+    footerHeight: $footer_height;
+    tablePaginationHeight: $table_pagination_height;
+    paddingBuffer: $padding_buffer;
+    dynamicContentHeight: $dynamic_content_height;
+  }

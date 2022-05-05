@@ -7,8 +7,7 @@ Vue.use(Vuex);
 
 const store: StoreOptions<RootState> = {
   state: {
-
-    helloMessage: 'OOOOOOh',
+    dummy: {},
   },
   modules: {
     users,

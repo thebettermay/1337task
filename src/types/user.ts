@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-empty-interface */
-type UserEntity = {
+export type UserEntity = {
     email: string,
     gitHub: string,
     highlighted: boolean
@@ -17,6 +17,6 @@ type UserEntity = {
     twitter: string | null,
 };
 
-interface UsersEntity extends Array<UserEntity>{users: []}
-
-export default UsersEntity;
+export type UsersEntity = {
+    users: Array<UserEntity>
+};

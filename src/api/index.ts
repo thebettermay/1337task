@@ -1,5 +1,5 @@
 import axios from 'axios';
-import UserEntity from '@/types/user';
+import { UserEntity } from '@/types/user';
 
 const BASE_URL = process.env.VUE_APP_API_URL;
 
