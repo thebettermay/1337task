@@ -1,6 +1,6 @@
 <template lang="html">
   <v-app-bar
-  class="secondary header"
+  class="header"
   dark
   app
   >
@@ -12,11 +12,11 @@
 <script>
 import Vue from 'vue';
 
-export default Vue.extend({
-});
+export default Vue.extend({});
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
+@import '@/sass/layout.scss';
 .header {
-    max-height: topHeaderHeight;
-  };
+  height: topHeaderHeight;
+}
 </style>

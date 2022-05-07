@@ -1,12 +1,9 @@
 <template>
-    <v-row justify="center">
-      <v-col class="my-auto" align="center" v-for="(user, i) in users"
-      :key="i">
-        <component
-        :is="getComponent()"
-        :user="user"></component>
-      </v-col>
-    </v-row>
+  <v-row justify="center" class="wrapper">
+    <v-col class="my-auto" align="center" v-for="(user, i) in users" :key="i">
+      <component :is="getComponent()" :user="user"></component>
+    </v-col>
+  </v-row>
 </template>
 <script lang="ts">
 import Vue from 'vue';
@@ -49,8 +46,11 @@ export default Vue.extend({
   },
 });
 </script>
-<style lang="scss">
-  .card-content {
-    margin: 0px;
-  }
+<style lang="scss" scoped>
+.card-content {
+  margin: 0px;
+}
+.wrapper {
+  max-height: dynamicContentHeight;
+}
 </style>

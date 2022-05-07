@@ -1,42 +1,47 @@
 <template>
-<v-container fluid class="mx-6">
-<v-row mx-6 align="start">
-  <v-col style="margin: 0 width: 100px">
-    <div class="heading">Filter by:</div>
-  </v-col>
-  <v-col style="margin: 0; padding: 0">
-    <v-text-field
-    style="max-width: 150px; padding: 0"
-    label="Name">{{name}}
-    </v-text-field>
-  </v-col>
-  <v-col style="margin: 0;padding: 0">
-    <v-text-field
-    style="max-width: 150px; padding: 0"
-    label="Office"></v-text-field>
-  </v-col>
-  <v-col style="margin: 0">
-    <div class="heading">Sort by:</div>
-  </v-col>
-  <v-col style="margin: 0">
-    <v-checkbox
-      label="Name"
-      :value="sortByName"
-      hide-details
-      v-model="sortByName"
-    ></v-checkbox>
-  </v-col>
-  <v-col style="margin: 0">
-    <v-checkbox
-      label="Office"
-      :value="sortByOffice"
-      hide-details
-      v-model="sortByOffice"
-    ></v-checkbox>
-    </v-col>
-    <v-spacer></v-spacer>
-  </v-row>
-</v-container>
+  <v-container fluid>
+    <v-row mx-6 align="start" style="padding-top: 10px" q>
+      <span class="heading">Filter by:</span>
+      <v-col style="margin: 0; padding: 0">
+        <v-text-field
+          style="max-width: 150px; padding: 0; margin-right: 10px"
+          label="Name"
+          hide-details
+          >{{ name }}
+        </v-text-field>
+      </v-col>
+      <v-col style="margin: 0; padding: 0">
+        <v-text-field
+          style="max-width: 150px; padding: 0"
+          label="Office"
+          hide-details
+        ></v-text-field>
+      </v-col>
+
+      <v-spacer></v-spacer>
+      <span class="heading">Sort by:</span>
+      <v-col style="margin: 0; padding: 12px 0">
+        <v-checkbox
+          label="Name"
+          :value="sortByName"
+          hide-details
+          v-model="sortByName"
+          style="margin: 0; padding: 0"
+        ></v-checkbox>
+      </v-col>
+      <v-col style="margin: 0; padding: 12px 0">
+        <v-checkbox
+          label="Office"
+          :value="sortByOffice"
+          hide-details
+          v-model="sortByOffice"
+          style="margin: 0; padding: 0"
+        ></v-checkbox>
+      </v-col>
+      <v-spacer></v-spacer>
+      <v-spacer></v-spacer>
+    </v-row>
+  </v-container>
 </template>
 
 <script lang="ts">
@@ -68,8 +73,10 @@ export default Vue.extend({
 });
 </script>
 <style scoped lang="css">
-  .heading {
-    font-weight: bold;
-    font-size: 20px;
-  }
+.heading {
+  font-weight: bold;
+  font-size: 20px;
+  margin: 10px 20px 10px 10px;
+  height: 30px;
+}
 </style>

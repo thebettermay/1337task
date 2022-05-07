@@ -1,25 +1,21 @@
 <template>
-    <main-layout id="content-wrapper">
-      <template v-slot:content>
+  <main-layout id="content-wrapper">
+    <template v-slot:content>
+      <filters-layout>
+        <template v-slot:content>
+          <filter-form></filter-form>
+        </template>
+      </filters-layout>
 
-        <filters-layout>
-          <template v-slot:content>
-           <filter-form></filter-form>
-          </template>
-        </filters-layout>
+      <users-layout>
+        <template v-slot:content>
+          <card-content type="card"> </card-content>
+        </template>
+      </users-layout>
 
-          <users-layout>
-            <template v-slot:content>
-              <card-content type="card">
-              </card-content>
-            </template>
-          </users-layout>
-
-          <Pagination>
-          </Pagination>
-
-      </template>
-    </main-layout>
+      <Pagination> </Pagination>
+    </template>
+  </main-layout>
 </template>
 
 <script lang="ts">
@@ -33,7 +29,12 @@ import Pagination from '@/components/UI/Pagination/Pagination.vue';
 
 export default Vue.extend({
   components: {
-    MainLayout, FiltersLayout, FilterForm, UsersLayout, CardContent, Pagination,
+    MainLayout,
+    FiltersLayout,
+    FilterForm,
+    UsersLayout,
+    CardContent,
+    Pagination,
   },
 });
 </script>
