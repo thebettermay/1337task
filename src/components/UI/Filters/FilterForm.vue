@@ -7,7 +7,9 @@
           style="max-width: 150px; padding: 0; margin-right: 10px"
           label="Name"
           hide-details
-          >{{ name }}
+          v-model="name"
+          @keyup="filterByParam($event, 'name')"
+        >
         </v-text-field>
       </v-col>
       <v-col style="margin: 0; padding: 0">
@@ -15,6 +17,8 @@
           style="max-width: 150px; padding: 0"
           label="Office"
           hide-details
+          v-model="office"
+          @keyup="filterByParam($event, 'office')"
         ></v-text-field>
       </v-col>
 
@@ -46,6 +50,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import { mapActions, mapGetters } from 'vuex';
 
 export default Vue.extend({
   data() {
@@ -56,19 +61,33 @@ export default Vue.extend({
       sortByOffice: null,
     };
   },
+  methods: {
+    ...mapActions(['FILTER_BY_PARAM', 'FILTER_USERS']),
+    filterByParam(event: Event, type: string) {
+      this.retrieveValue(event, type);
+    },
+    retrieveValue(event: Event, type: string) {
+      const target = <HTMLInputElement>event.target;
+      const fieldData = {
+        [type]: target.value,
+      };
+      setTimeout(() => this.FILTER_BY_PARAM(fieldData), 1000);
+    },
+  },
   watch: {
-    sortByName: {
+    GET_FILTERS: {
       immediate: true,
       handler(value) {
         console.log(value);
+        this.FILTER_USERS(value);
       },
     },
-    sortByOffice: {
-      immediate: true,
-      handler(value) {
-        console.log(value);
-      },
-    },
+  },
+  computed: {
+    ...mapGetters(['GET_FILTERS']),
+    // filters() {
+    //   this.filters = this.GET_FILTERS;
+    // },
   },
 });
 </script>

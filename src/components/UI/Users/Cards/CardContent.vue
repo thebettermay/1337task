@@ -1,5 +1,5 @@
 <template>
-  <v-row justify="center" class="wrapper">
+  <v-row justify="space-between" class="wrapper">
     <v-col class="my-auto" align="center" v-for="(user, i) in users" :key="i">
       <component :is="getComponent()" :user="user"></component>
     </v-col>
@@ -31,18 +31,24 @@ export default Vue.extend({
     },
   },
   computed: {
-    ...mapGetters(['GET_USERS']),
+    ...mapGetters(['GET_USERS', 'GET_FILTERED_USERS']),
   },
   watch: {
-    GET_USERS: {
-      immediate: true,
-      handler(newVal) {
-        this.users = newVal;
-      },
-    },
+    // GET_FILTERED_USERS: {
+    //   immediate: true,
+    //   async handler(newVal) {
+    //     console.log(newVal);
+    //     newVal.length
+    //       ? (this.users = newVal)
+    //       : (this.users = await this.GET_USERS);
+    //     // this.users = await this.GET_USERS;
+    //     console.log(this.users);
+    //   },
+    // },
   },
   async created() {
     this.users = await this.GET_USERS;
+    console.log(this.users);
   },
 });
 </script>

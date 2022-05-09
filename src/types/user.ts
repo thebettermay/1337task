@@ -18,5 +18,11 @@ export type UserEntity = {
 };
 
 export type UsersEntity = {
-    users: Array<UserEntity>
+    users: Array<UserEntity>,
+    usersFiltered: Array<any>,
 };
+
+export type SortingEntity = {
+    sortByName: string,
+    sortByOffice: string,
+}

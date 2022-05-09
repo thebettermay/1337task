@@ -10,18 +10,14 @@ import { mapGetters, mapActions } from 'vuex';
 
 export default Vue.extend({
   computed: {
-    ...mapGetters(['GET_USERS', 'GET_USER_BY_NAME']),
+    ...mapGetters(['GET_USERS']),
   },
   methods: {
     ...mapActions(['FETCH_USERS']),
-    getUserByName(name: string) {
-      console.log(this.GET_USER_BY_NAME(name));
-    },
   },
   async created() {
     await this.FETCH_USERS();
     console.log(this.GET_USERS);
-    await this.getUserByName('Agron Kabashi');
   },
 });
 </script>
