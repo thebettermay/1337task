@@ -25,22 +25,16 @@
       <v-spacer></v-spacer>
       <span class="heading">Sort by:</span>
       <v-col style="margin: 0; padding: 12px 0">
-        <v-checkbox
-          label="Name"
-          :value="sortByName"
-          hide-details
-          v-model="sortByName"
-          style="margin: 0; padding: 0"
-        ></v-checkbox>
+        <span style="margin-right: 5px">Name</span>
+        <v-icon small @click.stop="sort(sortBy.name, 'name')">{{
+          ordering(sortBy.name)
+        }}</v-icon>
       </v-col>
       <v-col style="margin: 0; padding: 12px 0">
-        <v-checkbox
-          label="Office"
-          :value="sortByOffice"
-          hide-details
-          v-model="sortByOffice"
-          style="margin: 0; padding: 0"
-        ></v-checkbox>
+        <span style="margin-right: 5px">Office</span>
+        <v-icon small @click.stop="sort(sortBy.office, 'office')">{{
+          ordering(sortBy.office)
+        }}</v-icon>
       </v-col>
       <v-spacer></v-spacer>
       <v-spacer></v-spacer>
@@ -57,12 +51,20 @@ export default Vue.extend({
     return {
       name: '',
       office: '',
-      sortByName: null,
-      sortByOffice: null,
+      sortBy: {
+        name: {
+          type: 'descending',
+          disabled: false,
+        },
+        office: {
+          type: 'descending',
+          disabled: false,
+        },
+      },
     };
   },
   methods: {
-    ...mapActions(['FILTER_BY_PARAM', 'FILTER_USERS']),
+    ...mapActions(['FILTER_BY_PARAM', 'SORT_BY_PARAM', 'FILTER_USERS']),
     filterByParam(event: Event, type: string) {
       this.retrieveValue(event, type);
     },
@@ -71,23 +73,30 @@ export default Vue.extend({
       const fieldData = {
         [type]: target.value,
       };
-      setTimeout(() => this.FILTER_BY_PARAM(fieldData), 1000);
+      this.FILTER_BY_PARAM(fieldData);
+    },
+    ordering(sortingType: any) {
+      return sortingType.type === 'descending'
+        ? 'as fa-sort-amount-down-alt'
+        : 'as fa-sort-amount-up-alt';
+    },
+    sort(field: any, fieldName: string) {
+      field.type === 'descending'
+        ? (field.type = 'ascending')
+        : (field.type = 'descending');
+      this.SORT_BY_PARAM({ [fieldName]: field });
     },
   },
   watch: {
     GET_FILTERS: {
       immediate: true,
       handler(value) {
-        console.log(value);
         this.FILTER_USERS(value);
       },
     },
   },
   computed: {
     ...mapGetters(['GET_FILTERS']),
-    // filters() {
-    //   this.filters = this.GET_FILTERS;
-    // },
   },
 });
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <v-card class="card">
+  <v-card class="card" hover>
     <v-list-item-avatar size="170" tile style="border-radius: 0">
       <v-img :src="avatar" contain></v-img>
     </v-list-item-avatar>

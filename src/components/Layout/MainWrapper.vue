@@ -17,7 +17,6 @@ export default Vue.extend({
   },
   async created() {
     await this.FETCH_USERS();
-    console.log(this.GET_USERS);
   },
 });
 </script>

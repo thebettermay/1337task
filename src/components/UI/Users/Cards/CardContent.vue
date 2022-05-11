@@ -1,6 +1,11 @@
 <template>
-  <v-row justify="space-between" class="wrapper">
-    <v-col class="my-auto" align="center" v-for="(user, i) in users" :key="i">
+  <v-row justify="start" class="wrapper" cols="12">
+    <v-col
+      class="my-auto"
+      align-self="start"
+      v-for="(user, i) in users"
+      :key="i"
+    >
       <component :is="getComponent()" :user="user"></component>
     </v-col>
   </v-row>
@@ -15,11 +20,11 @@ export default Vue.extend({
   /* eslint-disable vue/no-side-effects-in-computed-properties */
   components: { Card },
   props: ['type'],
-  data() {
-    return {
-      users: [],
-    };
-  },
+  // data() {
+  //   return {
+  //     users: [],
+  //   };
+  // },
   methods: {
     getComponent() {
       switch (this.type) {
@@ -31,24 +36,26 @@ export default Vue.extend({
     },
   },
   computed: {
+    /* eslint-disable no-return-assign */
     ...mapGetters(['GET_USERS', 'GET_FILTERED_USERS']),
+    users() {
+      return this.GET_FILTERED_USERS.length
+        ? (this.users = this.GET_FILTERED_USERS)
+        : (this.users = this.GET_USERS);
+    },
   },
   watch: {
-    // GET_FILTERED_USERS: {
-    //   immediate: true,
-    //   async handler(newVal) {
-    //     console.log(newVal);
-    //     newVal.length
-    //       ? (this.users = newVal)
-    //       : (this.users = await this.GET_USERS);
-    //     // this.users = await this.GET_USERS;
-    //     console.log(this.users);
-    //   },
-    // },
-  },
-  async created() {
-    this.users = await this.GET_USERS;
-    console.log(this.users);
+    GET_FILTERED_USERS: {
+      immediate: true,
+      async handler(newVal) {
+        // console.log(newVal);
+        // newVal.length
+        //   ? (this.users = newVal)
+        //   : (this.users = await this.GET_USERS);
+        // // this.users = await this.GET_USERS;
+        console.log(newVal);
+      },
+    },
   },
 });
 </script>
