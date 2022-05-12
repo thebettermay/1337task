@@ -4,7 +4,7 @@
   dark
   app
   >
-    <v-toolbar-title  class="pl-5 ml-5" cy-data="title" style="color: #00BFA5">
+    <v-toolbar-title  class="text-left ml-8" cy-data="title" style="color: #00BFA5">
       The fellowship of the tretton37
     </v-toolbar-title>
   </v-app-bar>
@@ -18,5 +18,6 @@ export default Vue.extend({});
 @import '@/sass/layout.scss';
 .header {
   height: topHeaderHeight;
+  font-family: monospace;
 }
 </style>

@@ -20,5 +20,5 @@ const state: SortingEntity = {
 };
 
 export const sorting: Module<SortingEntity, RootState> = {
-  state, actions, mutations
+  state, actions, mutations,
 };

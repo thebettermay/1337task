@@ -1,5 +1,5 @@
 <template lang="html">
-  <v-row  class='justify-space-between'>
+  <v-row  class='justify-space-between mx-0'>
     <v-col cols='4'>
       <div class="text-right">
 
@@ -32,5 +32,4 @@ export default Vue.extend({
 });
 </script>
 <style scoped>
-
 </style>

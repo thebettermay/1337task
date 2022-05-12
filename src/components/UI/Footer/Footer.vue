@@ -1,8 +1,9 @@
 <template>
   <v-footer app padless dark class="secondary">
-    <v-spacer></v-spacer>
-    <v-col class="text-center" cy-data="date" cols="2">
-      {{ getCurrentDate }} — Evgeniy Orekhov
+    <v-col class="text-right footer" cy-data="date">
+      {{ getCurrentDate }} — Evgeniy Orekhov<span class="copyright"
+        >&#169;</span
+      >
     </v-col>
   </v-footer>
 </template>
@@ -18,4 +19,10 @@ export default {
 </script>
 
 <style lang="css" scoped>
+.footer {
+  font-family: monospace;
+}
+.copyright {
+  width: 30px;
+}
 </style>

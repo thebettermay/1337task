@@ -1,9 +1,11 @@
 <template>
-  <div id="main-wrapper">
-    <Header />
-    <Main />
-    <Footer />
-  </div>
+  <v-app>
+    <div id="main-wrapper">
+      <Header />
+      <Main />
+      <Footer />
+    </div>
+  </v-app>
 </template>
 
 <script>

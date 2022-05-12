@@ -4,6 +4,8 @@ import { RootState } from './rootstate/types';
 import { users } from './modules/users/index';
 import { filters } from './modules/filters/index';
 import { sorting } from './modules/sorting/index';
+import { backendErrors } from './modules/backendErrors/index';
+
 Vue.use(Vuex);
 
 const store: StoreOptions<RootState> = {
@@ -14,6 +16,7 @@ const store: StoreOptions<RootState> = {
     users,
     filters,
     sorting,
+    backendErrors,
   },
 };
 

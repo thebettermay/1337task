@@ -2,10 +2,14 @@
 import { UsersEntity, UserEntity } from '@/types/user';
 import { MutationTree } from 'vuex';
 
+declare type Directions = {
+  ascending: number,
+  descending: number,
+}
 
 const sortBy = (field: string, data: UserEntity, direction: string) => {
   const copyData = [...data];
-  const directions = {
+  const directions: Directions = {
     ascending: 1,
     descending: -1,
   };
@@ -35,8 +39,6 @@ export const mutations: MutationTree<UsersEntity> = {
     const mutatedData = ifFiltered ? usersFiltered : users;
 
     const res = sortBy(fieldName, mutatedData, type);
-    console.log(res, state)
-    // Vue.set(state, 'usersFiltered', res);
     state.usersFiltered = res;
   },
 };

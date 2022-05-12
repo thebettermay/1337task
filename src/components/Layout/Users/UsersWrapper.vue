@@ -10,7 +10,7 @@ import Vue from 'vue';
 export default Vue.extend({});
 </script>
 <style lang="scss" scoped>
-.wrapper-gen {
-  overflow-y: auto;
-}
+// .wrapper-gen {
+//   overflow-y: auto;
+// }
 </style>
