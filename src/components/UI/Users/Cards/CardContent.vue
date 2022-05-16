@@ -1,16 +1,11 @@
 <template>
   <v-container>
-    <v-row justify="start" class="wrapper mx-0" cols="12" v-if="users">
-      <v-col
-        class="my-auto"
-        align-self="start"
-        v-for="(user, i) in users"
-        :key="i"
-      >
+    <v-row class="wrapper mx-0 flex-row" v-if="users">
+      <v-col class="my-auto mx-3 card" v-for="(user, i) in users" :key="i">
         <component :is="getComponent()" :user="user"></component>
       </v-col>
     </v-row>
-    <Error :error="error" />
+    <Error :error="error" v-if="!users.length && error" />
     <v-row> </v-row>
   </v-container>
 </template>
@@ -54,6 +49,10 @@ export default Vue.extend({
   margin: 0px;
 }
 .wrapper {
-  max-height: dynamicContentHeight;
+  max-height: 500px;
+  overflow-y: auto;
+}
+.card {
+  max-width: 170px;
 }
 </style>

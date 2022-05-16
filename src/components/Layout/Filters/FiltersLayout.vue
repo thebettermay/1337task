@@ -1,7 +1,7 @@
 <template>
   <v-container fluid>
-    <v-card >
-    <slot name="content"></slot>
+    <v-card :height="height">
+      <slot name="content"></slot>
     </v-card>
   </v-container>
 </template>
@@ -10,9 +10,25 @@
 import Vue from 'vue';
 
 export default Vue.extend({
-
+  /* eslint-disable vue/return-in-computed-property */
+  computed: {
+    height() {
+      // eslint-disable-next-line default-case
+      switch (this.$vuetify.breakpoint.name) {
+        case 'xs':
+          return 130;
+        case 'sm':
+          return 130;
+        case 'md':
+          return 70;
+        case 'lg':
+          return 70;
+        case 'xl':
+          return 70;
+      }
+    },
+  },
 });
 </script>
 <style scoped>
-
 </style>

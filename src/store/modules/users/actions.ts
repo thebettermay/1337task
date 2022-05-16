@@ -20,10 +20,15 @@ const errorParser = (err) => {
         code: status,
         message: 'Access denied',
       };
-    case 400: {
+    case 400:
       return {
         code: status,
         message: 'User does not exist',
+      };
+    default: {
+      return {
+        code: 404,
+        message: 'Page not found',
       };
     }
   }
@@ -36,6 +41,7 @@ export const actions: ActionTree<UsersEntity, RootState> = {
       commit('SET_USERS', res);
     } catch (err: unknown) {
       const errorObject = errorParser({ err });
+      console.log(errorObject)
       commit('SET_ERRORS', errorObject);
     }
   },

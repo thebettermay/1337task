@@ -2,9 +2,7 @@
 import { RootState } from '@/store/rootstate/types';
 import { SortingEntity } from '@/types/sorting';
 import { Module } from 'vuex';
-import { mutations } from './mutations';
 import { actions } from './actions';
-import { getters } from './getters';
 
 const state: SortingEntity = {
   sortingBy: {
@@ -20,5 +18,5 @@ const state: SortingEntity = {
 };
 
 export const sorting: Module<SortingEntity, RootState> = {
-  state, actions, mutations,
+  state, actions,
 };
