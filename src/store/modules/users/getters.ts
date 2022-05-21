@@ -2,17 +2,17 @@
 /* eslint-disable arrow-body-style */
 /* eslint-disable import/prefer-default-export */
 import { RootState } from '@/store/rootstate/types';
-import { UserEntity, UsersEntity } from '@/types/user';
+import { UserEntity, UsersStore } from '@/types/user';
 import { GetterTree } from 'vuex';
 
-export const getters: GetterTree<UsersEntity, RootState> = {
-  GET_USERS(state: UsersEntity): Array<UserEntity> {
-    return state.users;
+export const getters: GetterTree<UsersStore, RootState> = {
+  GET_USERS(state: UsersStore): Array<UserEntity> {
+    return state.mutatedUsersArray;
   },
-  GET_USERS_BY_OFFICE: (state: UsersEntity) => (office: string) => {
-    return state.users.map(el => el.office === office);
+  GET_USERS_BY_NAME: (state: UsersStore) => (name: string) => {
+    return state.users.map(el => el.name === name);
   },
-  GET_FILTERED_USERS: (state: UsersEntity) => {
-    return state.usersFiltered;
+  GET_DATA_STATUS(state: UsersStore): boolean {
+    return state.dataLoaded;
   },
 };

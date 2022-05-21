@@ -24,7 +24,8 @@ export default Vue.extend({
       const fieldData = {
         [type]: target.value,
       };
-      this.FILTER_BY_PARAM(fieldData);
+      this.$emit('updateData', fieldData);
+      // this.FILTER_BY_PARAM(fieldData);
     },
   },
 });

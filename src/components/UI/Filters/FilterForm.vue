@@ -3,17 +3,17 @@
     <v-row class="justify-start mt-2">
       <span class="heading mt-5 mx-5">Filter by:</span>
       <v-col class="mx-0 mt-2 pa-0" cols="3">
-        <text-field title="Name"></text-field>
+        <text-field title="Name" @updateData="updateFilters"></text-field>
       </v-col>
       <v-col class="mx-0 mt-2 pa-0" cols="3">
-        <text-field title="Office"></text-field>
+        <text-field title="Office" @updateData="updateFilters"></text-field>
       </v-col>
     </v-row>
     <v-row class="align-start mt-2">
       <span class="heading mt-5 mx-5">Sort by:</span>
       <v-col class="pa-0 mt-3" cols="3">
         <v-btn
-          class="mr-2"
+          :class="classes"
           @click="sortBy.name.disabled = !sortBy.name.disabled"
           >Name
           <v-icon
@@ -30,7 +30,7 @@
       </v-col>
       <v-col class="pa-0 mt-3" cols="3">
         <v-btn
-          class="mr-2"
+          :class="classes"
           @click="sortBy.office.disabled = !sortBy.office.disabled"
           >Office
           <v-icon
@@ -51,11 +51,10 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { mapActions, mapGetters } from 'vuex';
+import { mapActions } from 'vuex';
 import TextField from '@/components/UI/Filters/Partials/TextField.vue';
-import FilterIcon from '@/components/UI/Filters/Partials/FilterIcon.vue';
 export default Vue.extend({
-  components: { TextField, FilterIcon },
+  components: { TextField },
   data() {
     return {
       name: '',
@@ -73,17 +72,28 @@ export default Vue.extend({
       },
     };
   },
+  computed: {
+    classes() {
+      // eslint-disable-next-line default-case
+      switch (this.$vuetify.breakpoint.name) {
+        case 'xs':
+          return 'mr-2 button-size-small';
+        default:
+          return 'mr-2';
+      }
+    },
+  },
   methods: {
     ...mapActions(['FILTER_BY_PARAM', 'SORT_BY_PARAM', 'FILTER_USERS']),
-    filterByParam(event: Event, type: string) {
-      this.retrieveValue(event, type);
-    },
-    retrieveValue(event: Event, type: string) {
-      const target = <HTMLInputElement>event.target;
-      const fieldData = {
-        [type]: target.value,
+    updateFilters(val: { name: string }) {
+      const [filter] = Object.keys(val);
+      const [value] = Object.values(val);
+      Vue.set(this, filter, value);
+      const filterData = {
+        name: this.name,
+        office: this.office,
       };
-      this.FILTER_BY_PARAM(fieldData);
+      this.FILTER_BY_PARAM(filterData);
     },
     ordering(sortingType: any) {
       return sortingType.type === 'descending'
@@ -91,6 +101,7 @@ export default Vue.extend({
         : 'as fa-sort-amount-up-alt';
     },
     sort(field: any, fieldName: string) {
+      // eslint-disable-next-line no-unused-expressions
       field.type === 'descending'
         ? (field.type = 'ascending')
         : (field.type = 'descending');
@@ -100,17 +111,6 @@ export default Vue.extend({
       if (!type.disabled) type.disabled = !type.disabled;
       else return;
     },
-  },
-  watch: {
-    GET_FILTERS: {
-      immediate: true,
-      handler(value) {
-        this.FILTER_USERS(value);
-      },
-    },
-  },
-  computed: {
-    ...mapGetters(['GET_FILTERS']),
   },
 });
 </script>
@@ -122,5 +122,10 @@ export default Vue.extend({
   text-align: start;
   height: 30px;
   width: 100px;
+}
+
+.button-size-small {
+  width: 15px;
+  font-size: 10px !important;
 }
 </style>

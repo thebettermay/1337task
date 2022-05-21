@@ -17,7 +17,9 @@ export type UserEntity = {
     twitter: string | null,
 };
 
-export type UsersEntity = {
+export type UsersStore = {
+    dataLoaded: boolean,
     users: Array<UserEntity>,
-    usersFiltered: Array<any>,
+    mutatedUsersArray: Array<UserEntity>,
 };
+

@@ -1,13 +1,13 @@
 /* eslint-disable import/prefer-default-export */
 import { RootState } from '@/store/rootstate/types';
-import { UsersEntity } from '@/types/user';
+import { UsersStore } from '@/types/user';
 import { Module } from 'vuex';
 import { getters } from './getters';
 import { mutations } from './mutations';
 import { actions } from './actions';
 
-const state: UsersEntity = { users: [], usersFiltered: [] };
+const state: UsersStore = { dataLoaded: false, users: [], mutatedUsersArray: [] };
 
-export const users: Module<UsersEntity, RootState> = {
+export const users: Module<UsersStore, RootState> = {
   state, getters, mutations, actions,
 };

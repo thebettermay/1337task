@@ -5,6 +5,7 @@ import { ActionTree, Commit } from 'vuex';
 
 export const actions: ActionTree<FilterEntity, RootState> = {
   async FILTER_BY_PARAM({ commit }: { commit: Commit }, param: filters): Promise<void> {
-    commit('SET_FILTERS', param);
+    commit('SET_FILTERED_USERS', param);
+    this.state.pagination.pagination.currentPage = 1;
   },
 };

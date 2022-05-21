@@ -2,7 +2,7 @@
 
 #main-wrapper {
   background: rgb(240, 240, 240);
-  background: -moz-linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(240, 240, 240, 1) 100%);
+  background: -moz-linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgb(233, 118, 118) 100%);
   background: -webkit-linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(240, 240, 240, 1) 100%);
   background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(240, 240, 240, 1) 100%);
   font-family: monospace;
@@ -13,4 +13,19 @@
   margin-top: $top_header_height;
   margin-bottom: $footer_height;
   height: $dynamic_content_height;
+}
+
+.header {
+  height: $top_header_height;
+}
+
+.viewport {
+  height: $dynamic_content_height;
+
+}
+
+@media (max-width: 768px) {
+  .viewport {
+    height: calc($dynamic_content_height - 50px);
+  }
 }

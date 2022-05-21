@@ -1,10 +1,8 @@
 export type filters = {
-    [key: string]: string
-}[];
+    name: string,
+    office: string,
+};
 
 export type FilterEntity = {
-    filters: {
-        name: string,
-        office: string,
-    }
+    filters: filters,
 };

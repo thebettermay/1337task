@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid class="wrapper-gen">
+  <v-container fluid class="wrapper-gen viewport">
     <slot name="content"></slot>
   </v-container>
 </template>
