@@ -4,7 +4,6 @@ import { MutationTree } from 'vuex';
 
 export const mutations: MutationTree<backendErrorsEntity> = {
   SET_ERRORS(state, payload) {
-    console.log(payload)
     state.error = payload;
   },
 };

@@ -6,12 +6,9 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { mapGetters, mapActions } from 'vuex';
+import { mapActions } from 'vuex';
 
 export default Vue.extend({
-  computed: {
-    ...mapGetters(['GET_USERS']),
-  },
   methods: {
     ...mapActions(['FETCH_USERS']),
   },

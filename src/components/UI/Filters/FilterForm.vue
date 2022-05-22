@@ -12,37 +12,13 @@
     <v-row class="align-start mt-2">
       <span class="heading mt-5 mx-5">Sort by:</span>
       <v-col class="pa-0 mt-3" cols="3">
-        <v-btn
-          :class="classes"
-          @click="sortBy.name.disabled = !sortBy.name.disabled"
-          >Name
-          <v-icon
-            small
-            @click.stop="
-              sort(sortBy.name, 'name');
-              toggleSorting(sortBy.office);
-            "
-            :disabled="sortBy.name.disabled"
-          >
-            {{ ordering(sortBy.name) }}</v-icon
-          ></v-btn
+        <v-btn :class="classes" @click.stop="sort(sortBy.name, 'name')"
+          >Name</v-btn
         >
       </v-col>
       <v-col class="pa-0 mt-3" cols="3">
-        <v-btn
-          :class="classes"
-          @click="sortBy.office.disabled = !sortBy.office.disabled"
-          >Office
-          <v-icon
-            small
-            @click.stop="
-              sort(sortBy.office, 'office');
-              toggleSorting(sortBy.name);
-            "
-            :disabled="sortBy.office.disabled"
-          >
-            {{ ordering(sortBy.office) }}</v-icon
-          ></v-btn
+        <v-btn :class="classes" @click.stop="sort(sortBy.office, 'office')"
+          >Office</v-btn
         >
       </v-col>
     </v-row>
@@ -50,9 +26,11 @@
 </template>
 
 <script lang="ts">
+/* eslint-disable no-param-reassign */
 import Vue from 'vue';
 import { mapActions } from 'vuex';
 import TextField from '@/components/UI/Filters/Partials/TextField.vue';
+
 export default Vue.extend({
   components: { TextField },
   data() {
@@ -62,12 +40,10 @@ export default Vue.extend({
       isActive: false,
       sortBy: {
         name: {
-          type: 'descending',
-          disabled: true,
+          type: 'ascending',
         },
         office: {
-          type: 'descending',
-          disabled: true,
+          type: 'ascending',
         },
       },
     };
@@ -95,21 +71,12 @@ export default Vue.extend({
       };
       this.FILTER_BY_PARAM(filterData);
     },
-    ordering(sortingType: any) {
-      return sortingType.type === 'descending'
-        ? 'as fa-sort-amount-down-alt'
-        : 'as fa-sort-amount-up-alt';
-    },
-    sort(field: any, fieldName: string) {
+    sort(field: { type: 'ascending' | 'descending' }, fieldName: string) {
       // eslint-disable-next-line no-unused-expressions
       field.type === 'descending'
         ? (field.type = 'ascending')
         : (field.type = 'descending');
       this.SORT_BY_PARAM({ [fieldName]: field });
-    },
-    toggleSorting(type: any) {
-      if (!type.disabled) type.disabled = !type.disabled;
-      else return;
     },
   },
 });

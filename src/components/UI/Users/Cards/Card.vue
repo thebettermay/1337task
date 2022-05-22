@@ -1,5 +1,5 @@
 <template>
-  <v-card class="card" hover @click="showInfo()">
+  <v-card class="card" hover @click.stop="showInfo()">
     <detail-card
       :user="user"
       v-if="showDetail"
@@ -22,7 +22,7 @@
                   <b>{{ user.name }}</b></v-list-item-title
                 >
                 <v-list-item-subtitle class="align_left">
-                  <b>Office: </b>{{ user.office }}</v-list-item-subtitle
+                  <b>Office: </b>{{ office }}</v-list-item-subtitle
                 >
               </v-list-item-content>
             </v-list-item>
@@ -66,6 +66,9 @@ export default Vue.extend({
       return this.user.imagePortraitUrl
         ? this.user.imagePortraitUrl
         : this.avatarUrl;
+    },
+    office(): string {
+      return this.user.office ? this.user.office : '-';
     },
   },
 });

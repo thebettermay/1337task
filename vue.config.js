@@ -1,4 +1,3 @@
-
 const path = require('path');
 
 const testing = process.env.VUE_APP_TESTING === 'testing';

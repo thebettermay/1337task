@@ -31,8 +31,4 @@ export default Vue.extend({
 .font-size-small {
   font-size: 15px !important;
 }
-// .header {
-//   height: topHeaderHeight;
-//   font-family: monospace;
-// }
 </style>

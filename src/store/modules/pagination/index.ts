@@ -15,5 +15,5 @@ const state: PaginationEntity = {
 };
 
 export const pagination: Module<PaginationEntity, RootState> = {
-    state, actions, mutations, getters
+    state, actions, mutations, getters,
 };

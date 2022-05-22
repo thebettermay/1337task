@@ -41,6 +41,7 @@
                         open-delay="150"
                         class="mx-4"
                         v-if="mainText !== '-'"
+                        max-width=" 400px"
                       >
                         <template v-slot:activator="{ on }">
                           <v-list-item-subtitle
@@ -56,7 +57,7 @@
                       <v-list-item-subtitle class="align_left">
                         <b>Phone: </b
                         ><span color="teal">{{
-                          user.phoneNumber
+                          phoneNumber
                         }}</span></v-list-item-subtitle
                       >
                     </v-list-item-content>
@@ -126,6 +127,9 @@ export default Vue.extend({
         return this.user.mainText.replace(/(<p[^>]+?>|<p>|<\/p>)/gim, '\n');
       }
       return '-';
+    },
+    phoneNumber() {
+      return this.user.phoneNumber ? this.user.phoneNumber : '-';
     },
     socialNetworks() {
       const { gitHub, linkedIn, twitter } = this.user;

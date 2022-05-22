@@ -12,6 +12,40 @@ Vue.use(Vuex);
 const store: StoreOptions<RootState> = {
   state: {
     version: '1.0',
+    pagination: {
+      pagination: {
+        currentPage: 1,
+        from: 0,
+        to: 20,
+      },
+    },
+    sorting: {
+      sortingBy: {
+        name: {
+          ascending: false,
+          descending: true,
+        },
+        office: {
+          ascending: false,
+          descending: true,
+        },
+      },
+    },
+    filters: {
+      filters: {
+        name: '',
+        office: '',
+      },
+    },
+    backendErrors: {
+      error: {
+        code: '',
+        message: '',
+      },
+    },
+    users: {
+      dataLoaded: false, users: [], mutatedUsersArray: [],
+    },
   },
   modules: {
     users,

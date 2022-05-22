@@ -22,4 +22,3 @@ export type UsersStore = {
     users: Array<UserEntity>,
     mutatedUsersArray: Array<UserEntity>,
 };
-

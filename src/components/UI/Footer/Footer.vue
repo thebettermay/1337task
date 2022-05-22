@@ -11,9 +11,11 @@
 <script>
 export default {
   computed: {
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     getCurrentDate() {
       return new Date().getFullYear();
     },
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     classes() {
       // eslint-disable-next-line default-case
       switch (this.$vuetify.breakpoint.name) {

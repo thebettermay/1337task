@@ -13,11 +13,10 @@ export type SortingEntity = {
     }
 }
 
-type aaa = keyof UserEntity;
+type keys = keyof UserEntity;
 
 export type Sorting = {
-    [K in aaa]: {
+    [K in keys]: {
         type: 'ascending' | 'descending',
-        disabled: boolean,
     };
 }

@@ -48,7 +48,12 @@
     "vue-template-compiler": "^2.6.11"
   },
   "prettier": {
-    "singleQuote": true
+    "singleQuote": true,
+    "tabWidth": 2,
+    "[typescript]": {
+      "editor.formatOnPaste": false,
+      "editor.formatOnSave": false
+    }
   },
   "postcss": {
     "plugins": {
