@@ -78,14 +78,13 @@
 <script lang="ts">
 /* eslint-disable global-require */
 import { UserEntity } from '@/types/user';
-import Vue from 'vue';
+import Vue, { PropType } from 'vue';
 import NetworksRow from './NetworksRow.vue';
-
 export default Vue.extend({
   components: { NetworksRow },
   props: {
     user: {
-      type: Object as () => UserEntity,
+      type: Object as PropType<UserEntity>,
     },
   },
   data() {
