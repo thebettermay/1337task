@@ -4,7 +4,7 @@ const testing = process.env.VUE_APP_TESTING === 'testing';
 
 module.exports = {
   publicPath: process.env.NODE_ENV === 'production'
-    ? '/1337-test/'
+    ? '/1337task/'
     : '/',
   filenameHashing: !testing,
   transpileDependencies: [
@@ -27,8 +27,6 @@ module.exports = {
   // runtimeCompiler: true,
   lintOnSave: false,
   configureWebpack: {
-    // для дебага
-    // devtool: 'source-map',
     plugins: [
     ],
     // optimization: {
