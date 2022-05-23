@@ -34,12 +34,17 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import Vue, { PropType } from 'vue';
 import DetailCard from '@/components/UI/Users/Cards/Partials/DetailCard.vue';
+import { UserEntity } from '@/types/user';
 
 export default Vue.extend({
   components: { DetailCard },
-  props: ['user'],
+  props: {
+    user: {
+      type: Object as PropType<UserEntity>,
+    },
+  },
   data() {
     return {
       // eslint-disable-next-line global-require

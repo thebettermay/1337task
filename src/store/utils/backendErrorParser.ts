@@ -1,7 +1,7 @@
 import { backEndError } from '@/types/backendErrors';
 import { AxiosError } from 'axios';
 
-const errorParser = (err: AxiosError): backEndError => {
+const errorParser = (err: AxiosError): backEndError | undefined => {
     if (err.response) {
         const { status } = err.response;
         switch (status) {

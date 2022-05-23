@@ -78,13 +78,14 @@
 <script lang="ts">
 /* eslint-disable global-require */
 import { UserEntity } from '@/types/user';
-import Vue, { PropType } from 'vue';
+import Vue from 'vue';
 import NetworksRow from './NetworksRow.vue';
+
 export default Vue.extend({
   components: { NetworksRow },
   props: {
     user: {
-      type: Object as PropType<UserEntity>,
+      type: Object as () => UserEntity,
     },
   },
   data() {
@@ -107,7 +108,7 @@ export default Vue.extend({
   },
   computed: {
     // eslint-disable-next-line vue/return-in-computed-property
-    avatarSize() {
+    avatarSize(): number {
       // eslint-disable-next-line default-case
       switch (this.$vuetify.breakpoint.name) {
         case 'xs':
@@ -122,19 +123,18 @@ export default Vue.extend({
         : this.avatarUrl;
     },
 
-    mainText() {
+    mainText(): string {
       if (this.user.mainText) {
         return this.user.mainText.replace(/(<p[^>]+?>|<p>|<\/p>)/gim, '\n');
       }
       return '-';
     },
-    phoneNumber() {
+    phoneNumber(): string {
       return this.user.phoneNumber ? this.user.phoneNumber : '-';
     },
-    socialNetworks() {
+    socialNetworks(): { link: string | null; icon: string; to: string }[] {
       const { gitHub, linkedIn, twitter } = this.user;
-      console.log(linkedIn);
-      const networkUrls = [
+      const networkUrls: { link: string | null; icon: string; to: string }[] = [
         {
           link: gitHub,
           icon: require('@/assets/github_logo.png'),
@@ -152,9 +152,9 @@ export default Vue.extend({
         },
       ];
 
-      const networksGenerator = (networks) => {
-        return networks.filter((el) => el.link !== null);
-      };
+      const networksGenerator = (
+        networks: { link: string | null; icon: string; to: string }[]
+      ) => networks.filter((el) => el.link !== null);
       return networksGenerator(networkUrls);
     },
   },

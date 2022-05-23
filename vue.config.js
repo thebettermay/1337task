@@ -3,6 +3,9 @@ const path = require('path');
 const testing = process.env.VUE_APP_TESTING === 'testing';
 
 module.exports = {
+  publicPath: process.env.NODE_ENV === 'production'
+    ? '/1337-test/'
+    : '/',
   filenameHashing: !testing,
   transpileDependencies: [
     'vuetify',
