@@ -26,7 +26,7 @@ import Vue from 'vue';
 import { mapGetters } from 'vuex';
 import Card from '@/components/UI/Users/Cards/Card.vue';
 import Error from '@/components/UI/Users/Cards/Partials/Error.vue';
-import { pagination } from '@/types/pagination';
+import { pagination } from '@/types/store/pagination';
 
 export default Vue.extend({
   /* eslint-disable vue/return-in-computed-property */

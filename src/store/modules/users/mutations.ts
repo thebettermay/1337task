@@ -1,8 +1,8 @@
 /* eslint-disable import/prefer-default-export */
-import { UsersStore, UserEntity } from '@/types/user';
+import { UsersStore, UserEntity } from '@/types/store/user';
 import { MutationTree } from 'vuex';
 
-import { Sorting } from '@/types/sorting';
+import { Sorting } from '@/types/store/sorting';
 import sortBy from '../../utils/sortBy';
 import filterUsers from '../../utils/filterUsers';
 

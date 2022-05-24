@@ -1,6 +1,6 @@
 /* eslint-disable import/prefer-default-export */
-import { RootState } from '@/store/rootstate/types';
-import { PaginationEntity } from '@/types/pagination';
+import { RootState } from '@/types/store/rootState';
+import { PaginationEntity } from '@/types/store/pagination';
 import { Module } from 'vuex';
 import { actions } from './actions';
 import { mutations } from './mutations';

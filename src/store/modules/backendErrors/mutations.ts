@@ -1,5 +1,5 @@
 /* eslint-disable import/prefer-default-export */
-import { backendErrorsEntity } from '@/types/backendErrors';
+import { backendErrorsEntity } from '@/types/store/backendErrors';
 import { MutationTree } from 'vuex';
 
 export const mutations: MutationTree<backendErrorsEntity> = {

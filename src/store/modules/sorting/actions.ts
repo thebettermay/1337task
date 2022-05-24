@@ -1,6 +1,6 @@
 /* eslint-disable import/prefer-default-export */
-import { RootState } from '@/store/rootstate/types';
-import { SortingEntity, Sorting } from '@/types/sorting';
+import { RootState } from '@/types/store/rootState';
+import { SortingEntity, Sorting } from '@/types/store/sorting';
 import { ActionTree, Commit } from 'vuex';
 
 export const actions: ActionTree<SortingEntity, RootState> = {

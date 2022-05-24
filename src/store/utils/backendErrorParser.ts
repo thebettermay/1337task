@@ -1,4 +1,4 @@
-import { backEndError } from '@/types/backendErrors';
+import { backEndError } from '@/types/store/backendErrors';
 import { AxiosError } from 'axios';
 
 const errorParser = (err: AxiosError): backEndError | undefined => {

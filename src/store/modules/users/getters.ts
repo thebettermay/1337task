@@ -1,8 +1,8 @@
 /* eslint-disable arrow-parens */
 /* eslint-disable arrow-body-style */
 /* eslint-disable import/prefer-default-export */
-import { RootState } from '@/store/rootstate/types';
-import { UserEntity, UsersStore } from '@/types/user';
+import { RootState } from '@/types/store/rootState';
+import { UserEntity, UsersStore } from '@/types/store/user';
 import { GetterTree } from 'vuex';
 
 export const getters: GetterTree<UsersStore, RootState> = {

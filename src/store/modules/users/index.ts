@@ -1,6 +1,6 @@
 /* eslint-disable import/prefer-default-export */
-import { RootState } from '@/store/rootstate/types';
-import { UsersStore } from '@/types/user';
+import { RootState } from '@/types/store/rootState';
+import { UsersStore } from '@/types/store/user';
 import { Module } from 'vuex';
 import { getters } from './getters';
 import { mutations } from './mutations';

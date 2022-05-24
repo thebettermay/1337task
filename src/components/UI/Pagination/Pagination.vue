@@ -1,5 +1,4 @@
 <template lang="html">
-<v-container fluid class="mt-3">
   <v-row  class='mx-0'>
     <v-col align-self="end" class="pa-0">
         <v-pagination
@@ -15,7 +14,6 @@
     </v-col>
 
   </v-row>
-  </v-container>
 </template>
 <script>
 import Vue from 'vue';

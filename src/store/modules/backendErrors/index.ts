@@ -1,6 +1,6 @@
 /* eslint-disable import/prefer-default-export */
-import { RootState } from '@/store/rootstate/types';
-import { backendErrorsEntity } from '@/types/backendErrors';
+import { RootState } from '@/types/store/rootState';
+import { backendErrorsEntity } from '@/types/store/backendErrors';
 import { Module } from 'vuex';
 import { mutations } from './mutations';
 import { getters } from './getters';

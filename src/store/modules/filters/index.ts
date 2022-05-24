@@ -1,6 +1,6 @@
 /* eslint-disable import/prefer-default-export */
-import { RootState } from '@/store/rootstate/types';
-import { FilterEntity } from '@/types/filter';
+import { RootState } from '@/types/store/rootState';
+import { FilterEntity } from '@/types/store/filter';
 import { Module } from 'vuex';
 import { actions } from './actions';
 

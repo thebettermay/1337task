@@ -1,8 +1,8 @@
 /* eslint-disable arrow-parens */
 /* eslint-disable arrow-body-style */
 /* eslint-disable import/prefer-default-export */
-import { RootState } from '@/store/rootstate/types';
-import { pagination, PaginationEntity } from '@/types/pagination';
+import { RootState } from '@/types/store/rootState';
+import { pagination, PaginationEntity } from '@/types/store/pagination';
 import { GetterTree } from 'vuex';
 
 export const getters: GetterTree<PaginationEntity, RootState> = {

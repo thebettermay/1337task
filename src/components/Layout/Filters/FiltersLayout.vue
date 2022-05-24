@@ -12,6 +12,7 @@ import Vue from 'vue';
 export default Vue.extend({
   /* eslint-disable vue/return-in-computed-property */
   computed: {
+    // eslint-disable-next-line consistent-return
     height() {
       // eslint-disable-next-line default-case
       switch (this.$vuetify.breakpoint.name) {

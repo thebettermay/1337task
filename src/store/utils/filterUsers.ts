@@ -1,5 +1,5 @@
-import { filters } from '@/types/filter';
-import { UserEntity } from '@/types/user';
+import { filters } from '@/types/store/filter';
+import { UserEntity } from '@/types/store/user';
 
 const filterUsers = (data: UserEntity[], payload: filters): UserEntity[] => {
     const filterArray = Object.keys(payload) as (keyof typeof payload)[];

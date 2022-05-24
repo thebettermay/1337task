@@ -36,7 +36,7 @@
 <script lang="ts">
 import Vue, { PropType } from 'vue';
 import DetailCard from '@/components/UI/Users/Cards/Partials/DetailCard.vue';
-import { UserEntity } from '@/types/user';
+import { UserEntity } from '@/types/store/user';
 
 export default Vue.extend({
   components: { DetailCard },

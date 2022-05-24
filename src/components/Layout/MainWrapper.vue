@@ -6,14 +6,9 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { mapActions } from 'vuex';
+import FetcherMixin from '@/mixins/FetcherMixin.vue';
 
 export default Vue.extend({
-  methods: {
-    ...mapActions(['FETCH_USERS']),
-  },
-  async created() {
-    await this.FETCH_USERS();
-  },
+  mixins: [FetcherMixin],
 });
 </script>

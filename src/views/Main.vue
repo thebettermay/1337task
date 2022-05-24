@@ -12,8 +12,11 @@
           <card-content type="card"> </card-content>
         </template>
       </users-layout>
-
-      <Pagination> </Pagination>
+      <pagination-layout>
+        <template v-slot:content>
+          <pagination> </pagination>
+        </template>
+      </pagination-layout>
     </template>
   </main-layout>
 </template>
@@ -26,6 +29,7 @@ import FilterForm from '@/components/UI/Filters/FilterForm.vue';
 import UsersLayout from '@/components/Layout/Users/UsersWrapper.vue';
 import CardContent from '@/components/UI/Users/Cards/CardContent.vue';
 import Pagination from '@/components/UI/Pagination/Pagination.vue';
+import PaginationLayout from '@/components/Layout/Pagination/PaginationWrapper.vue';
 
 export default Vue.extend({
   components: {
@@ -35,6 +39,7 @@ export default Vue.extend({
     UsersLayout,
     CardContent,
     Pagination,
+    PaginationLayout,
   },
 });
 </script>

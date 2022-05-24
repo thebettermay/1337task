@@ -1,6 +1,6 @@
 /* eslint-disable import/prefer-default-export */
-import { RootState } from '@/store/rootstate/types';
-import { SortingEntity } from '@/types/sorting';
+import { RootState } from '@/types/store/rootState';
+import { SortingEntity } from '@/types/store/sorting';
 import { Module } from 'vuex';
 import { actions } from './actions';
 

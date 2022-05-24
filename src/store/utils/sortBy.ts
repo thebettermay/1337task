@@ -1,4 +1,4 @@
-import { UserEntity } from '@/types/user';
+import { UserEntity } from '@/types/store/user';
 
 declare type Directions = {
     ascending: number,

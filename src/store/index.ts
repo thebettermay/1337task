@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Vuex, { StoreOptions } from 'vuex';
-import { RootState } from './rootstate/types';
+import { RootState } from '@/types/store/rootState';
 import { users } from './modules/users/index';
 import { filters } from './modules/filters/index';
 import { sorting } from './modules/sorting/index';

@@ -1,7 +1,7 @@
 /* eslint-disable default-case */
 /* eslint-disable import/prefer-default-export */
-import { RootState } from '@/store/rootstate/types';
-import { UsersStore } from '@/types/user';
+import { RootState } from '@/types/store/rootState';
+import { UsersStore } from '@/types/store/user';
 import { AxiosError } from 'axios';
 import getUsers from '@/api';
 import { ActionTree, Commit } from 'vuex';
