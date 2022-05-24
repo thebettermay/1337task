@@ -18,16 +18,11 @@ export const mutations: MutationTree<UsersStore> = {
     state.mutatedUsersArray = filteredUsers;
   },
 
-  SET_SORTING(state: UsersStore, payload: Sorting) {
+  SET_SORTED_USERS(state: UsersStore, payload: Sorting) {
     const { mutatedUsersArray } = state;
     const [fieldName] = Object.keys(payload) as (keyof typeof payload)[];
     const { type } = payload[fieldName];
     const res = sortBy(fieldName, mutatedUsersArray, type);
     state.mutatedUsersArray = res;
-  },
-  MUTATE_USERS_ARRAY(state, payload) {
-    const { from, to } = payload;
-    const users = state.users.slice(from, to);
-    state.mutatedUsersArray = users;
   },
 };

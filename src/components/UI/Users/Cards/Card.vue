@@ -36,10 +36,12 @@
 <script lang="ts">
 import Vue, { PropType } from 'vue';
 import DetailCard from '@/components/UI/Users/Cards/Partials/DetailCard.vue';
+import DataParsingMixin from '@/mixins/DataParsingMixin.vue';
 import { UserEntity } from '@/types/store/user';
 
 export default Vue.extend({
   components: { DetailCard },
+  mixins: [DataParsingMixin],
   props: {
     user: {
       type: Object as PropType<UserEntity>,
@@ -66,14 +68,6 @@ export default Vue.extend({
         default:
           return 120;
       }
-    },
-    avatar(): string {
-      return this.user.imagePortraitUrl
-        ? this.user.imagePortraitUrl
-        : this.avatarUrl;
-    },
-    office(): string {
-      return this.user.office ? this.user.office : '-';
     },
   },
 });

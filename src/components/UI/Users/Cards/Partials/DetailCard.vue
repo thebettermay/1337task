@@ -2,7 +2,12 @@
   <v-overlay light opacity="0.5">
     <v-container fill-height>
       <v-row align-center justify="center">
-        <v-card class="card ma-0" hover v-click-outside="onClickOutside">
+        <v-card
+          class="card ma-0"
+          hover
+          v-click-outside="onClickOutside"
+          @keydown.esc="toggle()"
+        >
           <v-col class="pa-0" justify-self="right">
             <v-btn
               color="red"
@@ -34,7 +39,7 @@
                         <b>{{ user.name }}</b></v-list-item-title
                       >
                       <v-list-item-subtitle class="align_left mb-1">
-                        <b>Office: </b>{{ user.office }}</v-list-item-subtitle
+                        <b>Office: </b>{{ office }}</v-list-item-subtitle
                       >
                       <v-tooltip
                         bottom
@@ -77,17 +82,13 @@
 
 <script lang="ts">
 /* eslint-disable global-require */
-import { UserEntity } from '@/types/store/user';
-import Vue, { PropType } from 'vue';
+import DataParsingMixin from '@/mixins/DataParsingMixin.vue';
+import Vue from 'vue';
 import NetworksRow from './NetworksRow.vue';
 
 export default Vue.extend({
   components: { NetworksRow },
-  props: {
-    user: {
-      type: Object as PropType<UserEntity>,
-    },
-  },
+  mixins: [DataParsingMixin],
   data() {
     return {
       // eslint-disable-next-line global-require
@@ -106,57 +107,13 @@ export default Vue.extend({
       this.$emit('showInfo');
     },
   },
-  computed: {
-    // eslint-disable-next-line vue/return-in-computed-property
-    avatarSize(): number {
-      // eslint-disable-next-line default-case
-      switch (this.$vuetify.breakpoint.name) {
-        case 'xs':
-          return 250;
-        default:
-          return 400;
+  mounted() {
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        this.$emit('showInfo');
+        // Or any other way you want to close your modal
       }
-    },
-    avatar(): string {
-      return this.user.imagePortraitUrl
-        ? this.user.imagePortraitUrl
-        : this.avatarUrl;
-    },
-
-    mainText(): string {
-      if (this.user.mainText) {
-        return this.user.mainText.replace(/(<p[^>]+?>|<p>|<\/p>)/gim, '\n');
-      }
-      return '-';
-    },
-    phoneNumber(): string {
-      return this.user.phoneNumber ? this.user.phoneNumber : '-';
-    },
-    socialNetworks(): { link: string | null; icon: string; to: string }[] {
-      const { gitHub, linkedIn, twitter } = this.user;
-      const networkUrls: { link: string | null; icon: string; to: string }[] = [
-        {
-          link: gitHub,
-          icon: require('@/assets/github_logo.png'),
-          to: `github.com/${gitHub}`,
-        },
-        {
-          link: linkedIn,
-          icon: require('@/assets/linkedin_logo.png'),
-          to: `linkedin.com${linkedIn}`,
-        },
-        {
-          link: twitter,
-          icon: require('@/assets/twitter_logo.png'),
-          to: `twitter.com/${twitter}`,
-        },
-      ];
-
-      const networksGenerator = (
-        networks: { link: string | null; icon: string; to: string }[]
-      ) => networks.filter((el) => el.link !== null);
-      return networksGenerator(networkUrls);
-    },
+    });
   },
 });
 </script>

@@ -5,6 +5,6 @@ import { ActionTree, Commit } from 'vuex';
 
 export const actions: ActionTree<SortingEntity, RootState> = {
   async SORT_BY_PARAM({ commit }: { commit: Commit }, param: Sorting): Promise<void> {
-    commit('SET_SORTING', param);
+    commit('SET_SORTED_USERS', param);
   },
 };
