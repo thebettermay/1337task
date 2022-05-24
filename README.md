@@ -4,7 +4,7 @@ This is my coding assignment for 1337.
 I used Vue2 + Typescript, Vuex for store management,
 Vuetify lib (which lets me easily apply some margin and padding styling,
 provides simple grid system + can use Material Design icons ),
-SASS variables. I also wanted to write some tests using Jest, but decided not to waste any more time.
+SASS variables.
 The design is responsible for all the screen resolutions.
 
 The app itself is very simple: i use Vuex to store the whole array of users in Users module:
@@ -14,6 +14,10 @@ The app itself is very simple: i use Vuex to store the whole array of users in U
 Besides filtering and sorting both by name and office, pagination, i decided to make cards clickable,
 so the user's able to see more info about the person.
 
+## Clone the repository
+```
+git clone https://github.com/thebettermay/1337task.git 
+```
 
 ## Project setup
 ```
