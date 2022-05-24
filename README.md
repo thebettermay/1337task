@@ -1,7 +1,7 @@
 # 1337 coding task
 
 This is my coding assignment for 1337. 
-I used Vue2 + Typescript (I used it for the first time), Vuex for store management,
+I used Vue2 + Typescript, Vuex for store management,
 Vuetify lib (which lets me easily apply some margin and padding styling,
 provides simple grid system + can use Material Design icons ),
 SASS variables. I also wanted to write some tests using Jest, but decided not to waste any more time.
